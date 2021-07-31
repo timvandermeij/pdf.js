@@ -1992,8 +1992,7 @@ gulp.task(
     "generic-legacy",
     "jsdoc",
     ghPagesPrepare,
-    "wintersmith",
-    ghPagesGit
+    "wintersmith"
   )
 );
 
