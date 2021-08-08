@@ -25,7 +25,7 @@ import { Lexer } from "./parser.js";
 import { MissingDataException } from "./core_utils.js";
 import { Stream } from "./stream.js";
 
-const BUILT_IN_CMAPS = [
+var BUILT_IN_CMAPS = [
   // << Start unicode maps.
   "Adobe-GB1-UCS2",
   "Adobe-CNS1-UCS2",
