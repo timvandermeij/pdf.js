@@ -1,0 +1,70 @@
+name: Command (lint)
+
+on:
+  issue_comment:
+    types: [created]
+
+jobs:
+  process:
+    name: Process
+    runs-on: ubuntu-latest
+    if: >
+      github.event.issue.pull_request &&
+      contains(github.event.comment.body, '/command lint') &&
+      github.actor == 'timvandermeij'
+
+    steps:
+      - name: Notify about command reception
+        uses: actions/github-script@v4
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            github.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: ':information_source: Command "lint" started. [Click here](https://github.com/timvandermeij/pdf.js/actions/runs/${{ github.run_id }}) for details.'
+            })
+
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Checkout pull request
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: hub pr checkout ${{ github.event.issue.number }}
+
+      - name: Use Node.js 14 LTS
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
+
+      - name: Install Gulp
+        run: npm install -g gulp-cli
+
+      - name: Install other dependencies
+        run: npm install
+
+      - name: Run linting
+        id: lint
+        run: gulp lint
+        continue-on-error: true
+
+      - name: Notify about command result
+        uses: actions/github-script@v4
+        env:
+          OUTCOME: ${{ steps.lint.outcome }}
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            let result = ':x: Command "lint" failed.';
+            if (process.env.OUTCOME === 'success') {
+              result = ':heavy_check_mark: Command "lint" succeeded.';
+            }
+
+            github.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: `${result} [Click here](https://github.com/timvandermeij/pdf.js/actions/runs/${{ github.run_id }}) for details.`
+            })
