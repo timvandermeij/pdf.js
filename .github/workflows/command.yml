@@ -1,0 +1,25 @@
+name: Command
+
+on:
+  issue_comment:
+    types: [created]
+
+jobs:
+  respond:
+    name: Respond
+    runs-on: ubuntu-latest
+    if: contains(github.event.comment.html_url, '/pull/') && github.actor == 'timvandermeij'
+
+    steps:
+      - name: Respond to the unit test command
+        uses: actions/github-script@v2
+        if: contains(github.event.comment.body, '/workflow unittest')
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          script: |
+            github.issues.createComment({
+              issue_number: ${{ github.event.number }},
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: ':information_source: Triggered unit tests'
+            })
