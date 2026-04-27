@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 
+import { mergeCoverageIntoGlobal } from "../coverage_utils.js";
 import os from "os";
 
 const isMac = os.platform() === "darwin";
@@ -149,11 +150,23 @@ function closePages(pages) {
 }
 
 async function closeSinglePage(page) {
-  // Avoid to keep something from a previous test.
-  await page.evaluate(async () => {
+  const coverage = await page.evaluate(async () => {
+    // Avoid to keep something from a previous test.
     await window.PDFViewerApplication.testingClose();
     window.localStorage.clear();
+
+    // Serialize the coverage information to a JSON string because that is a
+    // lot faster/cheaper to transfer from the browser to Node.js over the
+    // WebDriver BiDi protocol, otherwise Puppeteer's own serialization logic
+    // kicks in and that is a lot slower (see also upstream issue
+    // https://github.com/puppeteer/puppeteer/issues/2427).
+    return window.__coverage__ ? JSON.stringify(window.__coverage__) : null;
   });
+
+  if (coverage) {
+    mergeCoverageIntoGlobal(JSON.parse(coverage));
+  }
+
   await page.close({ runBeforeUnload: false });
 }
 
