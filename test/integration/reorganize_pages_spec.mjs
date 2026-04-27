@@ -147,7 +147,7 @@ describe("Reorganize Pages View", () => {
     beforeEach(async () => {
       pages = await loadAndWait(
         "page_with_number.pdf",
-        "#viewsManagerToggleButton",
+        `.page[data-page-number = "1"] .endOfContent`,
         "page-fit",
         null,
         { enableSplitMerge: true }
@@ -366,7 +366,7 @@ describe("Reorganize Pages View", () => {
     beforeEach(async () => {
       pages = await loadAndWait(
         "page_with_number.pdf",
-        "#viewsManagerToggleButton",
+        `.page[data-page-number = "1"] .endOfContent`,
         "1",
         null,
         { enableSplitMerge: true }
@@ -612,7 +612,7 @@ describe("Reorganize Pages View", () => {
     beforeEach(async () => {
       pages = await loadAndWait(
         "page_with_number_and_link.pdf",
-        "#viewsManagerToggleButton",
+        `.page[data-page-number = "1"] .endOfContent`,
         "page-fit",
         null,
         { enableSplitMerge: true }
@@ -668,7 +668,7 @@ describe("Reorganize Pages View", () => {
     beforeEach(async () => {
       pages = await loadAndWait(
         "page_with_number_and_link.pdf",
-        "#viewsManagerToggleButton",
+        `.page[data-page-number = "1"] .endOfContent`,
         "1",
         null,
         {
@@ -732,7 +732,7 @@ describe("Reorganize Pages View", () => {
     beforeEach(async () => {
       pages = await loadAndWait(
         "page_with_number.pdf",
-        "#viewsManagerToggleButton",
+        `.page[data-page-number = "1"] .endOfContent`,
         "1",
         null,
         { enableSplitMerge: true }
@@ -784,7 +784,7 @@ describe("Reorganize Pages View", () => {
     beforeEach(async () => {
       pages = await loadAndWait(
         "page_with_number.pdf",
-        "#viewsManagerToggleButton",
+        `.page[data-page-number = "1"] .endOfContent`,
         "1",
         null,
         { enableSplitMerge: true }
@@ -868,7 +868,7 @@ describe("Reorganize Pages View", () => {
     beforeEach(async () => {
       pages = await loadAndWait(
         "page_with_number.pdf",
-        "#viewsManagerToggleButton",
+        `.page[data-page-number = "1"] .endOfContent`,
         "1",
         null,
         { enableSplitMerge: true }
@@ -927,7 +927,7 @@ describe("Reorganize Pages View", () => {
     beforeEach(async () => {
       pages = await loadAndWait(
         "page_with_number.pdf",
-        "#viewsManagerToggleButton",
+        `.page[data-page-number = "1"] .endOfContent`,
         "1",
         null,
         { enableSplitMerge: true }
@@ -1154,7 +1154,7 @@ describe("Reorganize Pages View", () => {
     beforeEach(async () => {
       pages = await loadAndWait(
         "page_with_number.pdf",
-        "#viewsManagerToggleButton",
+        `.page[data-page-number = "1"] .endOfContent`,
         "1",
         null,
         { enableSplitMerge: true }
@@ -1248,7 +1248,7 @@ describe("Reorganize Pages View", () => {
     beforeEach(async () => {
       pages = await loadAndWait(
         "page_with_number.pdf",
-        "#viewsManagerToggleButton",
+        `.page[data-page-number = "1"] .endOfContent`,
         "1",
         null,
         { enableSplitMerge: true }
@@ -1294,7 +1294,7 @@ describe("Reorganize Pages View", () => {
     beforeEach(async () => {
       pages = await loadAndWait(
         "two_pages.pdf",
-        "#viewsManagerToggleButton",
+        `.page[data-page-number = "1"] .endOfContent`,
         "page-fit",
         null,
         { enableSplitMerge: true }
@@ -1350,7 +1350,7 @@ describe("Reorganize Pages View", () => {
     beforeEach(async () => {
       pages = await loadAndWait(
         "page_with_number.pdf",
-        "#viewsManagerToggleButton",
+        `.page[data-page-number = "1"] .endOfContent`,
         "1",
         null,
         { enableSplitMerge: true }
@@ -1482,7 +1482,7 @@ describe("Reorganize Pages View", () => {
     beforeEach(async () => {
       pages = await loadAndWait(
         "page_with_number.pdf",
-        "#viewsManagerToggleButton",
+        `.page[data-page-number = "1"] .endOfContent`,
         "1",
         null,
         { enableSplitMerge: true }
@@ -1587,7 +1587,7 @@ describe("Reorganize Pages View", () => {
     beforeEach(async () => {
       pages = await loadAndWait(
         "page_with_number.pdf",
-        "#viewsManagerToggleButton",
+        `.page[data-page-number = "1"] .endOfContent`,
         "1",
         null,
         { enableSplitMerge: true }
@@ -1717,7 +1717,7 @@ describe("Reorganize Pages View", () => {
     beforeEach(async () => {
       pages = await loadAndWait(
         "page_with_number.pdf",
-        "#viewsManagerToggleButton",
+        `.page[data-page-number = "1"] .endOfContent`,
         "1",
         null,
         { enableSplitMerge: true }
@@ -1779,7 +1779,7 @@ describe("Reorganize Pages View", () => {
     beforeEach(async () => {
       pages = await loadAndWait(
         "page_with_number.pdf",
-        "#viewsManagerToggleButton",
+        `.page[data-page-number = "1"] .endOfContent`,
         "1",
         null,
         { enableSplitMerge: true }
@@ -1841,7 +1841,7 @@ describe("Reorganize Pages View", () => {
     beforeEach(async () => {
       pages = await loadAndWait(
         "page_with_number.pdf",
-        "#viewsManagerToggleButton",
+        `.page[data-page-number = "1"] .endOfContent`,
         "1",
         null,
         { enableSplitMerge: true }
@@ -1921,7 +1921,7 @@ describe("Reorganize Pages View", () => {
     beforeEach(async () => {
       pages = await loadAndWait(
         "page_with_number.pdf",
-        "#viewsManagerToggleButton",
+        `.page[data-page-number = "1"] .endOfContent`,
         "page-fit",
         null,
         { enableSplitMerge: true }
@@ -1988,7 +1988,7 @@ describe("Reorganize Pages View", () => {
     beforeEach(async () => {
       pages = await loadAndWait(
         "page_with_number.pdf",
-        "#viewsManagerToggleButton",
+        `.page[data-page-number = "1"] .endOfContent`,
         "page-fit",
         null,
         { enableSplitMerge: true }
@@ -2054,7 +2054,7 @@ describe("Reorganize Pages View", () => {
     beforeEach(async () => {
       pages = await loadAndWait(
         "page_with_number.pdf",
-        "#viewsManagerToggleButton",
+        `.page[data-page-number = "1"] .endOfContent`,
         "page-width",
         null,
         { enableSplitMerge: true }
@@ -2166,7 +2166,7 @@ describe("Reorganize Pages View", () => {
     beforeEach(async () => {
       pages = await loadAndWait(
         "page_with_number.pdf",
-        "#viewsManagerToggleButton",
+        `.page[data-page-number = "1"] .endOfContent`,
         "1",
         null,
         { enableSplitMerge: true }
@@ -2310,7 +2310,7 @@ describe("Reorganize Pages View", () => {
     beforeEach(async () => {
       pages = await loadAndWait(
         "two_pages.pdf",
-        "#viewsManagerToggleButton",
+        `.page[data-page-number = "1"] .endOfContent`,
         "page-fit",
         null,
         { enableSplitMerge: true }
@@ -2390,7 +2390,7 @@ describe("Reorganize Pages View", () => {
     beforeEach(async () => {
       pages = await loadAndWait(
         "page_with_number.pdf",
-        "#viewsManagerToggleButton",
+        `.page[data-page-number = "1"] .endOfContent`,
         "1",
         null,
         { enableSplitMerge: true }
@@ -2468,7 +2468,7 @@ describe("Reorganize Pages View", () => {
     beforeEach(async () => {
       pages = await loadAndWait(
         "page_with_number.pdf",
-        "#viewsManagerToggleButton",
+        `.page[data-page-number = "1"] .endOfContent`,
         "1",
         null,
         { enableSplitMerge: true }
@@ -2534,7 +2534,7 @@ describe("Reorganize Pages View", () => {
     beforeEach(async () => {
       pages = await loadAndWait(
         "page_with_number.pdf",
-        "#viewsManagerToggleButton",
+        `.page[data-page-number = "1"] .endOfContent`,
         "1",
         null,
         { enableSplitMerge: true }
@@ -2632,7 +2632,7 @@ describe("Reorganize Pages View", () => {
     beforeEach(async () => {
       pages = await loadAndWait(
         "page_with_number.pdf",
-        "#viewsManagerToggleButton",
+        `.page[data-page-number = "1"] .endOfContent`,
         "1",
         null,
         { enableSplitMerge: true }
@@ -2705,7 +2705,7 @@ describe("Reorganize Pages View", () => {
     beforeEach(async () => {
       pages = await loadAndWait(
         "page_with_number.pdf",
-        "#viewsManagerToggleButton",
+        `.page[data-page-number = "1"] .endOfContent`,
         "1",
         null,
         { enableSplitMerge: true }
@@ -2872,7 +2872,7 @@ describe("Reorganize Pages View", () => {
     beforeEach(async () => {
       pages = await loadAndWait(
         "page_with_number.pdf",
-        "#viewsManagerToggleButton",
+        `.page[data-page-number = "1"] .endOfContent`,
         "page-fit",
         null,
         { enableSplitMerge: true, enableNewBadge: true }
@@ -2961,7 +2961,7 @@ describe("Reorganize Pages View", () => {
     beforeEach(async () => {
       pages = await loadAndWait(
         "page_with_number.pdf",
-        "#viewsManagerToggleButton",
+        `.page[data-page-number = "1"] .endOfContent`,
         "page-fit",
         null,
         { enableSplitMerge: true }
@@ -3040,7 +3040,7 @@ describe("Reorganize Pages View", () => {
     beforeEach(async () => {
       pages = await loadAndWait(
         "three_pages_with_number.pdf",
-        "#viewsManagerToggleButton",
+        `.page[data-page-number = "1"] .endOfContent`,
         "1",
         null,
         { enableSplitMerge: true, enableMerge: true }
