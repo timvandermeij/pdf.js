@@ -300,6 +300,7 @@ describe("struct tree", function () {
       },
       struct
     );
+    await loadingTask.destroy();
   });
 
   it("should collect all list and table items in StructTree", async function () {

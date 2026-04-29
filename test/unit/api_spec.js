@@ -893,7 +893,7 @@ describe("api", function () {
       const pdfDocument = await Promise.race([loadingTask.promise, promise]);
       expect(pdfDocument?.numPages).toEqual(1);
 
-      loadingTask._worker.destroy();
+      await loadingTask.destroy();
     });
   });
 
@@ -1271,7 +1271,7 @@ describe("api", function () {
       const pageIndex = await pdfDoc.getPageIndex(ref);
       expect(pageIndex).toEqual(499);
 
-      await pdfDoc.destroy();
+      await loadingTask.destroy();
     });
 
     it("gets invalid page index", async function () {
@@ -2382,9 +2382,12 @@ describe("api", function () {
       );
       const pdfDoc = await loadingTask.promise;
       const markInfo = await pdfDoc.getMarkInfo();
+
       expect(markInfo.Marked).toEqual(true);
       expect(markInfo.UserProperties).toEqual(false);
       expect(markInfo.Suspects).toEqual(false);
+
+      await loadingTask.destroy();
     });
 
     it("gets data", async function () {
@@ -5538,6 +5541,8 @@ a dynamic compiler for JavaScript based on our`);
 ular since they are expressive, accessible to non-experts, and make
 deployment as easy as distributing a source ﬁle. They are used for
 small scripts as well as for`);
+
+      await loadingTask.destroy();
     });
   });
 
@@ -5955,6 +5960,8 @@ small scripts as well as for`);
         const pdfPage = await pdfDoc.getPage(3);
         const annots = await pdfPage.getAnnotations();
         expect(annots.length).toEqual(0);
+
+        await loadingTask.destroy();
       });
     });
 
