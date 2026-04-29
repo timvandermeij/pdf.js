@@ -76,6 +76,7 @@ describe("Scripting", function () {
     sandbox = null;
     send_queue = null;
     window.alert = windowAlert;
+    windowAlert = test_id = ref = null;
   });
 
   describe("Sandbox", function () {

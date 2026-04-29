@@ -1119,6 +1119,8 @@ describe("api", function () {
 
     afterAll(async function () {
       await pdfLoadingTask.destroy();
+      pdfDocument = null;
+      pdfLoadingTask = null;
     });
 
     function findNode(parent, node, index, check) {
@@ -3365,6 +3367,9 @@ describe("api", function () {
 
     afterAll(async function () {
       await pdfLoadingTask.destroy();
+      page = null;
+      pdfDocument = null;
+      pdfLoadingTask = null;
     });
 
     it("gets page number", function () {
